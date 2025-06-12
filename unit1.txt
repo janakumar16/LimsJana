@@ -1,0 +1,71 @@
+insert into controlmaster (ncontrolcode, nformcode, scontrolname, jsondata, nisesigncontrol, nisdistributedsite, nisprimarysyncsite, dmodifieddate, nstatus) select
+(select max(ncontrolcode)+1 from controlmaster), (select nformcode from qualisforms where sformname = 'Unit of Measurement'), 'ExportUnit', '{
+  "scontrolids": {
+    "en-US": "Export Unit of Measurement",
+    "ru-RU": "Export Unit of Measurement",
+    "tg-TG": "Export Unit of Measurement",
+	"fr-FR": "Export Unit of Measurement"
+  }
+}', 3, 3, 3, (SELECT to_char(now(),'YYYY-MM-DD HH:mi:ss')::timestamp without time zone), 1 where not exists 
+(select ncontrolcode from controlmaster where scontrolname='ExportUnit' and nformcode=(select nformcode from qualisforms where sformname = 'Unit of Measurement'));
+
+insert into sitecontrolmaster (nsitecontrolcode, nformcode, ncontrolcode, nneedesign, nisbarcodecontrol, nisreportcontrol, nisemailrequired, dmodifieddate, nsitecode, nstatus) select
+(select max(nsitecontrolcode)+1 from sitecontrolmaster), (select nformcode from qualisforms where sformname = 'Unit of Measurement'), (select ncontrolcode from controlmaster where scontrolname='ExportUnit' and nformcode=(select nformcode from qualisforms where sformname = 'Unit of Measurement')), 
+4, 4, 4, 4, (SELECT to_char(now(),'YYYY-MM-DD HH:mi:ss')::timestamp without time zone), -1, 1 where not exists (select nsitecontrolcode from sitecontrolmaster where 
+ncontrolcode=(select ncontrolcode from controlmaster where scontrolname='ExportUnit' and nformcode=(select nformcode from qualisforms where sformname = 'Unit of Measurement')));
+
+insert into userrolescreencontrol (nuserrolecontrolcode, ncontrolcode, nformcode, nuserrolecode, nneedrights, nneedesign, dmodifieddate, nstatus) select
+(select max(nuserrolecontrolcode)+1 from userrolescreencontrol), (select ncontrolcode from controlmaster where scontrolname='ExportUnit' and nformcode=(select nformcode from qualisforms where sformname = 'Unit of Measurement')),
+(select nformcode from qualisforms where sformname = 'Unit of Measurement'), -1, 3, 4, (SELECT to_char(now(),'YYYY-MM-DD HH:mi:ss')::timestamp without time zone), 1 where not exists 
+(select nuserrolecontrolcode from userrolescreencontrol where 
+ncontrolcode=(select ncontrolcode from controlmaster where scontrolname='ExportUnit' and nformcode=(select nformcode from qualisforms where sformname = 'Unit of Measurement')));
+
+
+
+
+
+insert into controlmaster (ncontrolcode, nformcode, scontrolname, jsondata, nisesigncontrol, nisdistributedsite, nisprimarysyncsite, dmodifieddate, nstatus) select
+(select max(ncontrolcode)+1 from controlmaster), (select nformcode from qualisforms where sformname = 'Unit of Measurement'), 'ExportUnit', '{
+  "scontrolids": {
+    "en-US": "Export Unit of Measurement",
+    "ru-RU": "Export Unit of Measurement",
+    "tg-TG": "Export Unit of Measurement",
+	"fr-FR": "Export Unit of Measurement"
+  }
+}', 3, 3, 3, (SELECT to_char(now(),'YYYY-MM-DD HH:mi:ss')::timestamp without time zone), 1 where not exists 
+(select ncontrolcode from controlmaster where scontrolname='ExportUnit' and nformcode=(select nformcode from qualisforms where sformname = 'Unit of Measurement'));
+
+insert into sitecontrolmaster (nsitecontrolcode, nformcode, ncontrolcode, nneedesign, nisbarcodecontrol, nisreportcontrol, nisemailrequired, dmodifieddate, nsitecode, nstatus) select
+(select max(nsitecontrolcode)+1 from sitecontrolmaster), (select nformcode from qualisforms where sformname = 'Unit of Measurement'), (select ncontrolcode from controlmaster where scontrolname='ExportUnit' and nformcode=(select nformcode from qualisforms where sformname = 'Unit of Measurement')), 
+4, 4, 4, 4, (SELECT to_char(now(),'YYYY-MM-DD HH:mi:ss')::timestamp without time zone), -1, 1 where not exists (select nsitecontrolcode from sitecontrolmaster where 
+ncontrolcode=(select ncontrolcode from controlmaster where scontrolname='ExportUnit' and nformcode=(select nformcode from qualisforms where sformname = 'Unit of Measurement')));
+
+insert into userrolescreencontrol (nuserrolecontrolcode, ncontrolcode, nformcode, nuserrolecode, nneedrights, nneedesign, dmodifieddate, nstatus) select
+(select max(nuserrolecontrolcode)+1 from userrolescreencontrol), (select ncontrolcode from controlmaster where scontrolname='ExportUnit' and nformcode=(select nformcode from qualisforms where sformname = 'Unit of Measurement')),
+(select nformcode from qualisforms where sformname = 'Unit of Measurement'), -1, 3, 4, (SELECT to_char(now(),'YYYY-MM-DD HH:mi:ss')::timestamp without time zone), 1 where not exists 
+(select nuserrolecontrolcode from userrolescreencontrol where 
+ncontrolcode=(select ncontrolcode from controlmaster where scontrolname='ExportUnit' and nformcode=(select nformcode from qualisforms where sformname = 'Unit of Measurement')));
+
+
+
+insert into controlmaster (ncontrolcode, nformcode, scontrolname, jsondata, nisesigncontrol, nisdistributedsite, nisprimarysyncsite, dmodifieddate, nstatus) select
+(select max(ncontrolcode)+1 from controlmaster), (select nformcode from qualisforms where sformname = 'Unit of Measurement'), 'ImportUnit', '{
+  "scontrolids": {
+    "en-US": "Import Unit ",
+    "ru-RU": "Import Unit of Measurement",
+    "tg-TG": "Import Unit of Measurement",
+	"fr-FR": "Import Unit of Measurement"
+  }
+}', 3, 3, 3, (SELECT to_char(now(),'YYYY-MM-DD HH:mi:ss')::timestamp without time zone), 1 where not exists 
+(select ncontrolcode from controlmaster where scontrolname='ImportUnit' and nformcode=(select nformcode from qualisforms where sformname = 'Unit of Measurement'));
+
+insert into sitecontrolmaster (nsitecontrolcode, nformcode, ncontrolcode, nneedesign, nisbarcodecontrol, nisreportcontrol, nisemailrequired, dmodifieddate, nsitecode, nstatus) select
+(select max(nsitecontrolcode)+1 from sitecontrolmaster), (select nformcode from qualisforms where sformname = 'Unit of Measurement'), (select ncontrolcode from controlmaster where scontrolname='ImportUnit' and nformcode=(select nformcode from qualisforms where sformname = 'Unit of Measurement')), 
+4, 4, 4, 4, (SELECT to_char(now(),'YYYY-MM-DD HH:mi:ss')::timestamp without time zone), -1, 1 where not exists (select nsitecontrolcode from sitecontrolmaster where 
+ncontrolcode=(select ncontrolcode from controlmaster where scontrolname='ImportUnit' and nformcode=(select nformcode from qualisforms where sformname = 'Unit of Measurement')));
+
+insert into userrolescreencontrol (nuserrolecontrolcode, ncontrolcode, nformcode, nuserrolecode, nneedrights, nneedesign, dmodifieddate, nstatus) select
+(select max(nuserrolecontrolcode)+1 from userrolescreencontrol), (select ncontrolcode from controlmaster where scontrolname='ImportUnit' and nformcode=(select nformcode from qualisforms where sformname = 'Unit of Measurement')),
+(select nformcode from qualisforms where sformname = 'Unit of Measurement'), -1, 3, 4, (SELECT to_char(now(),'YYYY-MM-DD HH:mi:ss')::timestamp without time zone), 1 where not exists 
+(select nuserrolecontrolcode from userrolescreencontrol where 
+ncontrolcode=(select ncontrolcode from controlmaster where scontrolname='ImportUnit' and nformcode=(select nformcode from qualisforms where sformname = 'Unit of Measurement')));
